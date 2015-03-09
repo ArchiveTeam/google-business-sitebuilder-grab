@@ -212,7 +212,7 @@ project = Project(
             <a href="http://tracker.archiveteam.org/google-business-sitebuilder/">Leaderboard</a> &middot;
             <a href="http://archiveteam.org/index.php?title=Google_Business_Sitebuilder">Wiki</a>
         </span></h2>
-        <p>Grabbing all apps from testflight.</p>
+        <p>Downloading Google Business Sitebuilder websites.</p>
     """,
     utc_deadline=datetime.datetime(2015, 3, 14, 23, 59, 0)
 )
