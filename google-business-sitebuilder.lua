@@ -18,7 +18,12 @@ wget.callbacks.httploop_result = function(url, err, http_stat)
 
     tries = tries + 1
 
-    if tries >= 20 then
+    if tries >= 2 and string.match(url["url"], 'googleusercontent') and status_code == 403 then
+      tries = 0
+      io.stdout:write("\nI can't seem to download this file. Ignoring it.\n")
+      io.stdout:flush()
+      return wget.actions.EXIT
+    elseif tries >= 20 then
       io.stdout:write("\nI give up... Please report this item to the admins.\n")
       io.stdout:flush()
       return wget.actions.ABORT
