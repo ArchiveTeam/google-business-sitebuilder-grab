@@ -7,6 +7,8 @@ wget.callbacks.download_child_p = function(urlpos, parent, depth, start_url_pars
 
   if verdict and string.match(url, "webcache%.googleusercontent%.com") then
     return false
+  elseif verdict and string.match(url, "data:image/") then
+    return false
   else
     return verdict
   end
