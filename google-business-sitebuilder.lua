@@ -2,6 +2,18 @@ local url_count = 0
 local tries = 0
 
 
+wget.callbacks.download_child_p = function(urlpos, parent, depth, start_url_parsed, iri, verdict, reason)
+  local url = urlpos["url"]["url"]
+
+  if verdict and string.match(url, "webcache%.googleusercontent%.com") then
+    return false
+  else
+    return verdict
+  end
+
+end
+
+
 wget.callbacks.httploop_result = function(url, err, http_stat)
   local status_code = http_stat["statcode"]
 
